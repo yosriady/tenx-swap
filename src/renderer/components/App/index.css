@@ -67,3 +67,40 @@
   background: #eee;
   padding: 5px 20px 0px;
 }
+
+.market {
+  width: 30%;
+  float: left;
+  border-style: 1px dashed #eee;
+  margin-right: 10px;
+}
+
+.market p {
+  margin-bottom: 0;
+}
+
+.market strong {
+  margin-top: 10px;
+}
+
+.market h2 {
+  margin: 0;
+}
+
+.market h5 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.fade-text {
+  color: #888
+}
+
+div.bp3-card.order {
+  padding: 10px;
+  margin: 0px;
+}
+
+div.order h4 {
+  margin: 0;
+}
