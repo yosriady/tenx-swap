@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import is from 'electron-is';
-import { Tab, Tabs, Icon } from "@blueprintjs/core";
+import { Tab, Tabs, Icon, Callout, Button, Card } from "@blueprintjs/core";
 import './index.css';
 import constants from '../../../constants';
 import { displayStyle } from '../../../utils';
@@ -10,8 +10,26 @@ import Footer from '../Footer';
 const DashboardPanel = () => (
   <div className="tab-pages">
       <p>
-          Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology
-          stack, it's easy to try it out on a small feature in an existing project.
+          balances of bitcoin, eth, erc20 tokens
+      </p>
+      <p>
+        number of pending trades
+      </p>
+  </div>
+);
+
+const MarketPanel = () => (
+  <div className="tab-pages">
+    <Callout intent="primary" icon="chart" title="Markets keep you on top of prices.">
+        <p><em>Not sure what rate to use?</em> You can view the latest prices of different trading pairs here. <a href=""><strong>Create an Order</strong></a> when you're ready.</p>
+      </Callout>    
+      <br/>
+
+      <div class="bp3-card .modifier">
+        We build products that make people better at their most important work.
+      </div>
+      <p>
+          market data
       </p>
   </div>
 );
@@ -19,18 +37,21 @@ const DashboardPanel = () => (
 const TradePanel = () => (
   <div className="tab-pages">
       <p>
-          HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic
-          views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting
-          environment is extraordinarily expressive, readable, and quick to develop.
+          form to create new order,
+          list of active orders with share button
       </p>
   </div>
 );
 
-const NotificationsPanel = () => (
+const HistoryPanel = () => (
   <div className="tab-pages">
+    <Callout intent="primary" icon="history" title="Recent shows you the latest activity.">
+        <p>View a summary of your past orders and their status here.</p>
+      </Callout>    
+      <br/>
+
       <p>
-          asdfasd
-          environment is extraordinarily expressive, readable, and quick to develop.
+          show history
       </p>
   </div>
 );
@@ -72,15 +93,17 @@ class App extends Component {
             <div class="bp3-navbar-group bp3-align-right">
               <Icon icon="help" />
               <span class="bp3-navbar-divider"></span>
-              <Icon icon="user" />
+              <Icon icon="notifications" style={{'margin-right': '10px'}} />
+              <Icon icon="cog" />
             </div>
           </nav>
 
 
           <Tabs>
-              <Tab id="dashboard" title="Dashboard" panel={<DashboardPanel />} />
-              <Tab id="trade" title="Trade" panel={<TradePanel />} />
-              <Tab id="notifications" title="Notifications" panel={<NotificationsPanel />} />
+              <Tab id="dashboard" title={<span><Icon icon="panel-stats" /> Dashboard</span>} panel={<DashboardPanel />} />
+              <Tab id="markets" title={<span><Icon icon="chart" /> Markets</span>} panel={<MarketPanel />} />
+              <Tab id="trade" title={<span><Icon icon="exchange" /> Trade</span>} panel={<TradePanel />} />
+              <Tab id="history" title={<span><Icon icon="history" /> Recent</span>} panel={<HistoryPanel />} />
           </Tabs>
           <div className="footer-container">
             <Footer />
