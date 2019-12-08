@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import is from 'electron-is';
-import { Tab, Tabs, Icon, Callout, Button, Card, Select } from "@blueprintjs/core";
+import { Tab, Tabs, Icon, Callout, Button, Card, ControlGroup, FormGroup, InputGroup } from "@blueprintjs/core";
 import './index.css';
 import constants from '../../../constants';
 import { displayStyle } from '../../../utils';
@@ -118,8 +118,30 @@ const Markets = [
   "DAI-BTC"
 ]
 
+const maxButton = (
+  <Button
+      text='Max'
+      minimal={true}
+  />
+);
+
 const TradePanel = () => (
   <div className="tab-pages">
+      <h4>Open Orders</h4>
+
+      <div class="order bp3-card">
+        <h4>0.1 BTC <Icon icon="exchange" /> 2300 PAY</h4>
+        <em>Expires Mon 9 Dec 1:47PM</em>
+
+        <Button icon="share" intent="success" text="Share" style= {{ float: 'right' }}/>
+        <Button text="Details" style= {{ float: 'right', 'margin-right': '5px' }}/>
+      </div>     
+
+
+    <br />
+    <br />
+
+    <h4>Create New Order</h4>
     <Card>
       <div class="bp3-select bp3-fill bp3-large">
         <strong>Trading Pair</strong>
@@ -129,26 +151,50 @@ const TradePanel = () => (
           <option value="2">DAI-BTC</option>
           <option value="3">ZRX-BTC</option>
         </select>
-
-        Amount PAY
-
-        Price BTC
-
-        market price: ...
-
-        Expires 
-
-        1 days
-
-        <Button intent="success" text="Create Order" style= {{ width: '100%' }}/>
+        <br />
+        <br />
       </div>
+
+      <FormGroup
+          label="Amount PAY"
+      >
+        <InputGroup
+          large
+          placeholder={"0 PAY"}
+          rightElement={maxButton}
+        />
+      </FormGroup>
+
+      <FormGroup label="Price BTC"
+        helperText="Market price: 1 PAY = 0.00000235 BTC"
+      >
+        <InputGroup
+            large
+            label="Price BTC"
+            placeholder="Price BTC"
+        />
+      </FormGroup>
+
+      <FormGroup label="Expires in"
+      >
+      <ControlGroup fill>
+          <InputGroup large placeholder="1" />
+          <div class="bp3-select bp3-fill bp3-large">
+            <select>
+              <option selected>days</option>
+              <option value="1">hours</option>
+              <option value="2">minutes</option>
+            </select>
+            <br />
+            <br />
+          </div>
+      </ControlGroup>
+      </FormGroup>
+
+      <Button large intent="success" text="Create Order" style= {{ width: '100%' }}/>
     </Card>
 
-
-      <p>
-          form to create new order,
-          list of open orders with share button
-      </p>
+    <br />
   </div>
 );
 
