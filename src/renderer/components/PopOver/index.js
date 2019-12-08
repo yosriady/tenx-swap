@@ -13,7 +13,7 @@ const PopOver = ({ position, height }) => {
     width: arrowDim,
     height: arrowDim,
     top: position === 'top' ? height - arrowDim / 2 : -arrowDim / 2,
-    backgroundColor: constants.popOverOrBarColor,
+    backgroundColor: '#394b59',
   };
 
   return (

@@ -15,7 +15,7 @@ app.on('ready', () => {
     }),
     icon: path.resolve(__dirname, 'IconTemplate.png'),
     tooltip: 'MyApp',
-    width: 350,
+    width: 600,
     height: 460,
     fullscreenable: false,
     resizable: false,
@@ -25,12 +25,10 @@ app.on('ready', () => {
     },
     alwaysOnTop: true,
     showOnAllWorkspaces: false,
-    // preloadWindow: true,
+    preloadWindow: true,
   });
 
-  mb.on('after-create-window', () => {
-    mb.window.webContents.openDevTools({ mode: 'undocked' });
-  });
+  mb.window.webContents.openDevTools();
 });
 
 app.on('window-all-closed', (event) => {

@@ -1,11 +1,39 @@
 import React, { Component } from 'react';
 import is from 'electron-is';
+import { Tab, Tabs, Icon } from "@blueprintjs/core";
 import './index.css';
 import constants from '../../../constants';
 import { displayStyle } from '../../../utils';
 import PopOver from '../PopOver';
-import TopBar from '../TopBar';
 import Footer from '../Footer';
+
+const DashboardPanel = () => (
+  <div className="tab-pages">
+      <p>
+          Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology
+          stack, it's easy to try it out on a small feature in an existing project.
+      </p>
+  </div>
+);
+
+const TradePanel = () => (
+  <div className="tab-pages">
+      <p>
+          HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic
+          views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting
+          environment is extraordinarily expressive, readable, and quick to develop.
+      </p>
+  </div>
+);
+
+const NotificationsPanel = () => (
+  <div className="tab-pages">
+      <p>
+          asdfasd
+          environment is extraordinarily expressive, readable, and quick to develop.
+      </p>
+  </div>
+);
 
 class App extends Component {
   constructor(props) {
@@ -37,17 +65,23 @@ class App extends Component {
           <PopOver position="top" height={12} />
         </div>
         <div className="content" style={contentStyle}>
-          <div className="top-bar-container">
-            <TopBar onChangeTab={this.onChangeTab} />
-          </div>
-          <div className="tab-pages">
-            <div className="tab1-panel-container" style={displayStyle(this.state.selectedTab === 'tab1')}>
-              tab1
+          <nav class="bp3-navbar bp3-dark">
+            <div class="bp3-navbar-group bp3-align-left">
+              <div class="bp3-navbar-heading"><img className="logo" src="logo.png" width='25px'/> C( )MIT</div>
             </div>
-            <div className="tab2-panel-container" style={displayStyle(this.state.selectedTab === 'tab2')}>
-              tab2
+            <div class="bp3-navbar-group bp3-align-right">
+              <Icon icon="help" />
+              <span class="bp3-navbar-divider"></span>
+              <Icon icon="user" />
             </div>
-          </div>
+          </nav>
+
+
+          <Tabs>
+              <Tab id="dashboard" title="Dashboard" panel={<DashboardPanel />} />
+              <Tab id="trade" title="Trade" panel={<TradePanel />} />
+              <Tab id="notifications" title="Notifications" panel={<NotificationsPanel />} />
+          </Tabs>
           <div className="footer-container">
             <Footer />
           </div>

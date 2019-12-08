@@ -53,3 +53,17 @@
 .app .bottom-popover {
   flex: 0 1 auto;
 }
+
+.bp3-tab-panel {
+  margin: 20px;
+}
+
+.bp3-tab-panel {
+  height: 270px;
+}
+
+.bp3-tab-list {
+  font-weight: bold;
+  background: #eee;
+  padding: 5px 20px 0px;
+}

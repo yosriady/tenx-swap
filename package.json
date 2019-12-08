@@ -17,6 +17,7 @@
     "menubar"
   ],
   "dependencies": {
+    "@blueprintjs/core": "^3.22.1",
     "electron-is": "^3.0.0",
     "menubar": "^5.2.3",
     "prop-types": "^15.7.2",

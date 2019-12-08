@@ -1,14 +1,13 @@
 import React from 'react';
+import { Icon } from "@blueprintjs/core";
 import './index.css';
 import constants from '../../../constants';
 
 const Footer = () => {
-  const style = {
-    backgroundColor: constants.popOverOrBarColor,
-  };
-
   return (
-    <div className="footer" style={style} />
+    <div className="footer">
+      <Icon icon="tick-circle" intent="success" /> Up to date
+    </div>
   );
 };
 
